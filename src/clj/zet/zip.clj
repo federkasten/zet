@@ -2,7 +2,7 @@
   (:import [java.io ByteArrayOutputStream]
            [java.util.zip Deflater Inflater]))
 
-(defn #^bytes deflate
+(defn deflate
   [#^bytes data]
   (let [dflt (doto (Deflater.)
                    (.setInput data)
@@ -19,7 +19,7 @@
     (.end dflt)
     (.toByteArray os)))
 
-(defn #^bytes inflate
+(defn inflate
   [#^bytes data]
   (let [iflt (doto (Inflater.)
                (.setInput data))
